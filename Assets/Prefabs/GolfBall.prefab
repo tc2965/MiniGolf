@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1433242022253405462}
   m_Layer: 0
   m_Name: GolfBall
-  m_TagString: Untagged
+  m_TagString: GolfBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15448b2d1b2ea4152b9e5b6550334122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
