@@ -7,9 +7,18 @@ public class GolfBallMove : MonoBehaviour
     public bool paused = false;
     private float scaleDownTouch = 0.3f;
     private Rigidbody _rigidbody;
+    private GameManager gameManager;
+
 
     private void Start() {
         _rigidbody = GetComponent<Rigidbody>();
+
+        GameObject gameManagerMaybe = GameObject.FindGameObjectWithTag("GameManager");
+        if (gameManagerMaybe != null) {
+            gameManager = gameManagerMaybe.GetComponent<GameManager>();
+        } else {
+            print("No gamemanager found");
+        }
     } 
 
     void Update()
@@ -29,11 +38,11 @@ public class GolfBallMove : MonoBehaviour
         }
     }
 
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.gameObject.CompareTag("Spike")) {
+    private void FixedUpdate()
+    {
+        if (transform.position.y < -50.0f) {
+            gameManager.RestartLevel();
+        }
+    }
 
-    //     }
-    // }
-    
 }
