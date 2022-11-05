@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class GolfBallMove : MonoBehaviour
 {
-    private float scaleDownTouch = 0.1f;
+    private float scaleDownTouch = 0.3f;
     private Rigidbody _rigidbody;
 
     private void Start() {
         _rigidbody = GetComponent<Rigidbody>();
     } 
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
-
             if (touch.phase == TouchPhase.Moved) {
-                _rigidbody.AddForce(new Vector3(-touch.deltaPosition.x * scaleDownTouch, 0, -touch.deltaPosition.y * scaleDownTouch));
+                Vector3 force = new Vector3(-touch.deltaPosition.x * scaleDownTouch, 0, -touch.deltaPosition.y * scaleDownTouch);
+                _rigidbody.AddForce(force);
             }
         }
     }
+
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     if (other.gameObject.CompareTag("Spike")) {
+
+    //     }
+    // }
     
 }
