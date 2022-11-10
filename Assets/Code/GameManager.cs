@@ -142,6 +142,10 @@ public class GameManager : MonoBehaviour
     //     SaveOptions();
     //     settingsMenu.SetActive(false);
     // }
+
+    public void ShowNextLevelScreen() {
+        nextLevelScreen.SetActive(true);
+    }
     
     public void RestartLevel()
     {
