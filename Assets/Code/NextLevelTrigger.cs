@@ -19,7 +19,9 @@ public class NextLevelTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("GolfBall")) {
             gameManager.ShowNextLevelScreen();
-            GolfBallMove? script = other.GetComponent<GolfBallMove>();
+            #nullable enable
+            GolfBallMove script = other.GetComponent<GolfBallMove>();
+            #nullable disable
             if (script == null) {
                 print("not the golf ball, object is tagged wrong");
             } else {
