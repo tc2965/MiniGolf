@@ -40,7 +40,7 @@ public class GolfBallMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.y < -50.0f) {
+        if (transform.position.y < -30.0f) {
             gameManager.RestartLevel();
         }
     }

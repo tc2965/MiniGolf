@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             nextLevelScreen.SetActive(false);
         } 
         Time.timeScale = 1f;
-        StartCoroutine(LoadOptions());
+        // StartCoroutine(LoadOptions());
         GameObject golfBallMaybe = GameObject.FindGameObjectWithTag("GolfBall");
         if (golfBallMaybe != null) {
             golfBall = golfBallMaybe.GetComponent<GolfBallMove>();
@@ -180,11 +180,13 @@ public class GameManager : MonoBehaviour
     {
         string currlevel = SceneManager.GetActiveScene().name;
         int nextlevel = currlevel[currlevel.Length-1] - '0';
-        if (nextlevel == 4) {
-            SceneManager.LoadScene("WinScreen");
-        } else {
-            SceneManager.LoadScene("Level" + (++nextlevel).ToString());
-        }
+        SceneManager.LoadScene("Level" + (++nextlevel).ToString());
+
+        // if (nextlevel == 4) {
+        //     SceneManager.LoadScene("WinScreen");
+        // } else {
+        //     SceneManager.LoadScene("Level" + (++nextlevel).ToString());
+        // }
     }
 
 }
