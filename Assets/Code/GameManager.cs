@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             nextLevelScreen.SetActive(false);
         } 
         Time.timeScale = 1f;
-        StartCoroutine(LoadOptions());
+        // StartCoroutine(LoadOptions());
         GameObject golfBallMaybe = GameObject.FindGameObjectWithTag("GolfBall");
         if (golfBallMaybe != null) {
             golfBall = golfBallMaybe.GetComponent<GolfBallMove>();

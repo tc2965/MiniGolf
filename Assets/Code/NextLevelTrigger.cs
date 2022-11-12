@@ -17,6 +17,7 @@ public class NextLevelTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        print("hit something");
         if (other.CompareTag("GolfBall")) {
             gameManager.ShowNextLevelScreen();
             GolfBallMove? script = other.GetComponent<GolfBallMove>();
