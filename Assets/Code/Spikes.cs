@@ -9,14 +9,14 @@ public class Spikes : MonoBehaviour
     private Vector3 _position;
     private GameManager gameManager;
 
-    void Start()
-    {
+    private void Awake() {
         yStart = transform.position.y;
         _position = transform.position;
         
         GameObject gameManagerMaybe = GameObject.FindGameObjectWithTag("GameManager");
         if (gameManagerMaybe != null) {
             gameManager = gameManagerMaybe.GetComponent<GameManager>();
+            print("FOUND GAMEMANAGER");
         } else {
             print("No gamemanager found");
         }
@@ -30,7 +30,9 @@ public class Spikes : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        print("spike hit something");
         if (other.gameObject.CompareTag("GolfBall")) {
+            print("spike hit golfball");
             gameManager.RestartLevel();
         }
     }
