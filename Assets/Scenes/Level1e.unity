@@ -1467,7 +1467,7 @@ GameObject:
   - component: {fileID: 444292752}
   - component: {fileID: 444292751}
   m_Layer: 0
-  m_Name: Ramp (1)
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,7 +1918,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-43862
+  m_Name: pb_Mesh195108
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2411,7 +2411,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13699894, y: 1.7763568e-15, z: -2.2204457e-16, w: 0.9905712}
+  m_LocalRotation: {x: 0.13699894, y: -4.440892e-16, z: 1.1102229e-16, w: 0.9905712}
   m_LocalPosition: {x: 0, y: 3.82, z: -14.940001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3615,7 +3615,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395029895}
-  m_LocalRotation: {x: 0.13699894, y: 1.7763568e-15, z: -2.2204457e-16, w: 0.9905712}
+  m_LocalRotation: {x: 0.13699894, y: -4.440892e-16, z: 1.1102229e-16, w: 0.9905712}
   m_LocalPosition: {x: 0, y: 3.82, z: -14.940001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
