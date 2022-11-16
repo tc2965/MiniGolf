@@ -9,12 +9,19 @@ public class GolfBallMove : MonoBehaviour
     private Rigidbody _rigidbody;
     private GameManager gameManager;
     private bool ballTurn = false;
-
     private Vector3 ballMoveForce;
-    
+    private LineRenderer lineRenderer;
+    private List<Vector3> linePoints = new List<Vector3>();
 
     private void Start() {
         _rigidbody = GetComponent<Rigidbody>();
+        lineRenderer = GetComponent<LineRenderer>();
+        if (lineRenderer == null) {
+            print("no line found");
+        }
+        linePoints.Add(transform.position);
+        linePoints.Add(transform.position);
+        lineRenderer.SetPositions(linePoints.ToArray());
 
         GameObject gameManagerMaybe = GameObject.FindGameObjectWithTag("GameManager");
         if (gameManagerMaybe != null) {
@@ -37,13 +44,18 @@ public class GolfBallMove : MonoBehaviour
             if (touch.phase == TouchPhase.Began) {
                 RaycastHit hit = getScreenPointToRay(touch.position);
                 if (hit.collider.name == "GolfBall") {
+                    linePoints[0] = transform.position;
                     ballTurn = true;
                 }
             } else if (touch.phase == TouchPhase.Moved && ballTurn) {
+                lineRenderer.gameObject.SetActive(ballTurn);
                 ballMoveForce = new Vector3(-touch.deltaPosition.x, 0, -touch.deltaPosition.y);
+                linePoints[1] = transform.position - ballMoveForce;
+                lineRenderer.SetPositions(linePoints.ToArray());
             } else if (touch.phase == TouchPhase.Ended && ballTurn) {
                 ballTurn = false;
                 _rigidbody.AddForce(ballMoveForce);
+                lineRenderer.gameObject.SetActive(ballTurn);
             }
         }
     }
