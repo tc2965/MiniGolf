@@ -8,7 +8,10 @@ public class GolfBallMove : MonoBehaviour
     private float scaleDownTouch = 0.3f;
     private Rigidbody _rigidbody;
     private GameManager gameManager;
+    private bool ballTurn = false;
 
+    private Vector3 ballMoveForce;
+    
 
     private void Start() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -31,9 +34,16 @@ public class GolfBallMove : MonoBehaviour
         }
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved) {
-                Vector3 force = new Vector3(-touch.deltaPosition.x * scaleDownTouch, 0, -touch.deltaPosition.y * scaleDownTouch);
-                _rigidbody.AddForce(force);
+            if (touch.phase == TouchPhase.Began) {
+                RaycastHit hit = getScreenPointToRay(touch.position);
+                if (hit.collider.name == "GolfBall") {
+                    ballTurn = true;
+                }
+            } else if (touch.phase == TouchPhase.Moved && ballTurn) {
+                ballMoveForce = new Vector3(-touch.deltaPosition.x, 0, -touch.deltaPosition.y);
+            } else if (touch.phase == TouchPhase.Ended && ballTurn) {
+                ballTurn = false;
+                _rigidbody.AddForce(ballMoveForce);
             }
         }
     }
@@ -43,6 +53,13 @@ public class GolfBallMove : MonoBehaviour
         if (transform.position.y < -30.0f) {
             gameManager.RestartLevel();
         }
+    }
+
+    private RaycastHit getScreenPointToRay(Vector2 inputPosition) {
+        Ray ray = Camera.main.ScreenPointToRay(inputPosition);
+        RaycastHit hit; 
+        Physics.Raycast(ray, out hit);
+        return hit;
     }
 
 }
