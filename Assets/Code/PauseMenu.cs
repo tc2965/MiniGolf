@@ -8,6 +8,10 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] GameObject pauseMenu; 
     public GameObject golf;
+    
+    void Start(){
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass>().PlayMusic();
+    }
 
     public void Pause(){
         pauseMenu.SetActive(true);
