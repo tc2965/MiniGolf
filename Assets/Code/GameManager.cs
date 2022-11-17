@@ -8,7 +8,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    // public GameObject? pauseMenu; //must link to settings, restart level, and quit
+    public GameObject pauseMenu; //must link to settings, restart level, and quit
     // public GameObject? settingsMenu; // must have slider for music and sound fx volume & text for their int value
     // public GameObject? deathScreen; // must restart level 
     public GameObject nextLevelScreen; // must restart level 
@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // if(pauseMenu != null) {
-        //     pauseMenu.SetActive(false);
-        // }
+        if(pauseMenu != null) {
+            pauseMenu.SetActive(false);
+        }
         // settingsMenu.SetActive(false);
         // if(deathScreen != null) {
         //     deathScreen.SetActive(false);
@@ -111,12 +111,12 @@ public class GameManager : MonoBehaviour
     //     //Cursor.lockState = CursorLockMode.None;
     // }
 
-    // public void ShowPauseMenu()
-    // {
-    //     golfBall.paused = true;
-    //     pauseMenu.SetActive(true);
-    //     //Cursor.lockState = CursorLockMode.None;
-    // }
+    public void ShowPauseMenu()
+    {
+        golfBall.paused = true;
+        pauseMenu.SetActive(true);
+        //Cursor.lockState = CursorLockMode.None;
+    }
 
     // public void ShowSettingsMenu()
     // {
@@ -129,14 +129,15 @@ public class GameManager : MonoBehaviour
     //     golfBall.paused = false;
     //     //Cursor.lockState = CursorLockMode.Locked;
     // }
-    // public void ClosePauseMenu()
-    // {
-    //     settingsMenu.SetActive(false);
-    //     pauseMenu.SetActive(false);
-    //     golfBall.paused = false;
-    //     //Cursor.lockState = CursorLockMode.Locked;
-    //     SaveOptions();
-    // }
+    public void ClosePauseMenu()
+    {
+        // settingsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        golfBall.paused = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        SaveOptions();
+    }
+
     // public void CloseOptionsMenu()
     // {
     //     SaveOptions();
@@ -155,7 +156,7 @@ public class GameManager : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Start");
     }
 
      public void OnMusicSliderValueChange(float value)
@@ -179,6 +180,10 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel() 
     {
         string currlevel = SceneManager.GetActiveScene().name;
+        if (currlevel == "Start") {
+            SceneManager.LoadScene("Level1");
+            return;
+        }
         int nextlevel = currlevel[currlevel.Length-1] - '0';
         SceneManager.LoadScene("Level" + (++nextlevel).ToString());
 
