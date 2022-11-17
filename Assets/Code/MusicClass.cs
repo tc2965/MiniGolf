@@ -13,12 +13,18 @@ public class MusicClass : MonoBehaviour
     {
         DontDestroyOnLoad(transform.gameObject);
         _audioSource = GetComponent<AudioSource>();
+        ChangeMusic(1);
     }
 
     public void PlayMusic()
     {
         if (_audioSource.isPlaying) return;
         _audioSource.Play();
+    }
+
+    public void Update() 
+    {
+        _audioSource.loop = true;
     }
 
     public void ChangeMusic(int soundNum){
