@@ -8,8 +8,9 @@ public class GolfBallMove : MonoBehaviour
     private float scaleDownTouch = 0.3f;
     private Rigidbody _rigidbody;
     private GameManager gameManager;
-    private bool ballTurn = false;
-    private Vector3 ballMoveForce;
+    private bool ballTurn = true;
+    private bool ballIdle = true;
+    private Vector3? lastProcessedWorldPoint;
     private LineRenderer lineRenderer;
     private List<Vector3> linePoints = new List<Vector3>();
 
@@ -39,25 +40,6 @@ public class GolfBallMove : MonoBehaviour
         else {
             Time.timeScale = 0;
         }
-        if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began) {
-                RaycastHit hit = getScreenPointToRay(touch.position);
-                if (hit.collider.name == "GolfBall") {
-                    linePoints[0] = transform.position;
-                    ballTurn = true;
-                }
-            } else if (touch.phase == TouchPhase.Moved && ballTurn) {
-                lineRenderer.gameObject.SetActive(ballTurn);
-                ballMoveForce = new Vector3(-touch.deltaPosition.x, 0, -touch.deltaPosition.y);
-                linePoints[1] = transform.position - ballMoveForce;
-                lineRenderer.SetPositions(linePoints.ToArray());
-            } else if (touch.phase == TouchPhase.Ended && ballTurn) {
-                ballTurn = false;
-                _rigidbody.AddForce(ballMoveForce);
-                lineRenderer.gameObject.SetActive(ballTurn);
-            }
-        }
     }
 
     private void FixedUpdate()
@@ -65,13 +47,106 @@ public class GolfBallMove : MonoBehaviour
         if (transform.position.y < -30.0f) {
             gameManager.RestartLevel();
         }
+
+        if (_rigidbody.velocity.magnitude < 0.5f) {
+            StopBall();
+        }
+
+        ProcessAim();
     }
 
-    private RaycastHit getScreenPointToRay(Vector2 inputPosition) {
-        Ray ray = Camera.main.ScreenPointToRay(inputPosition);
+    private void ProcessAim() {
+        // if the ball is moving, then we don't wanna interrupt
+        // if the ball's turn is still going
+        if (!ballIdle || !ballTurn) {
+            print("ball idle: " + ballIdle.ToString()); 
+            print("ball turn: " + ballTurn.ToString()); 
+            print("ball movement: " + _rigidbody.velocity.magnitude.ToString());
+            return;
+        }
+        
+        if (Input.touchCount > 0) {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began) {
+                // just wanna know if the user intentionally touched the ball
+                if (!TouchedHitBall(touch.position)) {
+                    return;
+                }
+            } else if (touch.phase == TouchPhase.Moved) {
+                // if the user moved, we wanna know where their finger is
+                lastProcessedWorldPoint = ProcessTouchInput(touch.position);
+
+                if (!lastProcessedWorldPoint.HasValue) {
+                    return;
+                }
+                // and if we can draw the line and shoot
+                DrawLine(lastProcessedWorldPoint.Value);
+
+            } else if (touch.phase == TouchPhase.Ended) {
+                ballTurn = false; 
+                lineRenderer.enabled = false;
+                if (lastProcessedWorldPoint.HasValue) {
+                    Shoot(lastProcessedWorldPoint.Value);
+                }
+            }
+        }
+    }
+
+    private void Shoot(Vector3 worldPoint) {
+        Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
+        Vector3 direction = (horizontalWorldPoint - transform.position).normalized;
+        float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
+        _rigidbody.AddForce(-direction * strength * 50);
+        ballIdle = false;
+    }
+
+    private void DrawLine(Vector3 worldPoint) {
+        linePoints[0] = transform.position;
+        linePoints[1] = worldPoint;
+        lineRenderer.SetPositions(linePoints.ToArray());
+        lineRenderer.enabled = true;
+    }
+
+    private void StopBall() {
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        ballIdle = true;
+        ballTurn = true;
+    }
+
+    private Vector3? ProcessTouchInput(Vector2 touchPosition) {
+        Vector3 far = new Vector3(
+            touchPosition.x, 
+            touchPosition.y, 
+            Camera.main.farClipPlane
+        );
+        Vector3 near = new Vector3(
+            touchPosition.x, 
+            touchPosition.y, 
+            Camera.main.nearClipPlane
+        );
+        Vector3 worldPosFar = Camera.main.ScreenToWorldPoint(far);
+        Vector3 worldPosNear = Camera.main.ScreenToWorldPoint(near);
         RaycastHit hit; 
-        Physics.Raycast(ray, out hit);
-        return hit;
+        if (Physics.Raycast(worldPosNear, worldPosFar - worldPosNear, out hit, float.PositiveInfinity)) {
+            return hit.point;
+        } else {
+            return null;
+        }
     }
 
+    private bool TouchedHitBall(Vector2 touchPosition) {
+        Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+        RaycastHit hit; 
+        if (Physics.Raycast(ray, out hit)) {
+            if (hit.collider.name == "GolfBall") {
+                print("touched golf ball");
+                ballTurn = true;
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
