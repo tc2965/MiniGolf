@@ -30,7 +30,7 @@ public class Spikes : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("GolfBall")) {
-            gameManager.RestartLevel();
+            // gameManager.RestartLevel();
         }
     }
 }

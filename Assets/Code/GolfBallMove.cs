@@ -58,12 +58,12 @@ public class GolfBallMove : MonoBehaviour
     private void ProcessAim() {
         // if the ball is moving, then we don't wanna interrupt
         // if the ball's turn is still going
-        if (!ballIdle || !ballTurn) {
-            print("ball idle: " + ballIdle.ToString()); 
-            print("ball turn: " + ballTurn.ToString()); 
-            print("ball movement: " + _rigidbody.velocity.magnitude.ToString());
-            return;
-        }
+        // if (!ballIdle || !ballTurn) {
+        //     print("ball idle: " + ballIdle.ToString()); 
+        //     print("ball turn: " + ballTurn.ToString()); 
+        //     print("ball movement: " + _rigidbody.velocity.magnitude.ToString());
+        //     return;
+        // }
         
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
@@ -86,15 +86,18 @@ public class GolfBallMove : MonoBehaviour
             } else if (touch.phase == TouchPhase.Ended) {
                 ballTurn = false; 
                 lineRenderer.enabled = false;
-                if (lastProcessedWorldPoint.HasValue) {
-                    Shoot(lastProcessedWorldPoint.Value);
-                }
+                Shoot(lastProcessedWorldPoint.Value);
+            }
+        } else {
+            if (lineRenderer.enabled && ballTurn) {
+                ballTurn = false; 
+                lineRenderer.enabled = false;
             }
         }
     }
 
     private void Shoot(Vector3 worldPoint) {
-        Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
+        Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y + 0.0001f, worldPoint.z);
         Vector3 direction = (horizontalWorldPoint - transform.position).normalized;
         float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
         _rigidbody.AddForce(-direction * strength * 50);
@@ -103,7 +106,7 @@ public class GolfBallMove : MonoBehaviour
 
     private void DrawLine(Vector3 worldPoint) {
         linePoints[0] = transform.position;
-        linePoints[1] = worldPoint;
+        linePoints[1] = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
         lineRenderer.SetPositions(linePoints.ToArray());
         lineRenderer.enabled = true;
     }
@@ -116,24 +119,9 @@ public class GolfBallMove : MonoBehaviour
     }
 
     private Vector3? ProcessTouchInput(Vector2 touchPosition) {
-        Vector3 far = new Vector3(
-            touchPosition.x, 
-            touchPosition.y, 
-            Camera.main.farClipPlane
-        );
-        Vector3 near = new Vector3(
-            touchPosition.x, 
-            touchPosition.y, 
-            Camera.main.nearClipPlane
-        );
-        Vector3 worldPosFar = Camera.main.ScreenToWorldPoint(far);
-        Vector3 worldPosNear = Camera.main.ScreenToWorldPoint(near);
-        RaycastHit hit; 
-        if (Physics.Raycast(worldPosNear, worldPosFar - worldPosNear, out hit, float.PositiveInfinity)) {
-            return hit.point;
-        } else {
-            return null;
-        }
+        float initialDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+        return ray.GetPoint(initialDistance);
     }
 
     private bool TouchedHitBall(Vector2 touchPosition) {
@@ -141,7 +129,6 @@ public class GolfBallMove : MonoBehaviour
         RaycastHit hit; 
         if (Physics.Raycast(ray, out hit)) {
             if (hit.collider.name == "GolfBall") {
-                print("touched golf ball");
                 ballTurn = true;
                 return true;
             }
