@@ -6,8 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    void Start(){
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass>().PlayMusic(); 
+    }
+
     public void GoDemo(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ChangeSound(int num){
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass>().ChangeMusic(num);
     }
 }

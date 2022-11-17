@@ -7,6 +7,7 @@ TagManager:
   - Spike
   - GolfBall
   - GameManager
+  - Music
   layers:
   - Default
   - TransparentFX
