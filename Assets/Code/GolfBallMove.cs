@@ -48,7 +48,8 @@ public class GolfBallMove : MonoBehaviour
             gameManager.RestartLevel();
         }
 
-        if (_rigidbody.velocity.magnitude < 0.5f) {
+        if (_rigidbody.velocity.magnitude < 0.05f) {
+            print("is it bc of this?");
             StopBall();
         }
 
@@ -56,8 +57,8 @@ public class GolfBallMove : MonoBehaviour
     }
 
     private void ProcessAim() {
-        // if the ball is moving, then we don't wanna interrupt
-        // if the ball's turn is still going
+        // // if the ball is moving, then we don't wanna interrupt
+        // // if the ball's turn is still going
         // if (!ballIdle || !ballTurn) {
         //     print("ball idle: " + ballIdle.ToString()); 
         //     print("ball turn: " + ballTurn.ToString()); 
@@ -84,29 +85,26 @@ public class GolfBallMove : MonoBehaviour
                 DrawLine(lastProcessedWorldPoint.Value);
 
             } else if (touch.phase == TouchPhase.Ended) {
-                ballTurn = false; 
-                lineRenderer.enabled = false;
                 Shoot(lastProcessedWorldPoint.Value);
             }
-        } else {
-            if (lineRenderer.enabled && ballTurn) {
-                ballTurn = false; 
-                lineRenderer.enabled = false;
-            }
         }
+        
     }
 
     private void Shoot(Vector3 worldPoint) {
         Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y + 0.0001f, worldPoint.z);
         Vector3 direction = (horizontalWorldPoint - transform.position).normalized;
         float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
-        _rigidbody.AddForce(-direction * strength * 50);
+        _rigidbody.AddForce(-direction * strength * 75);
         ballIdle = false;
+        ballTurn = false; 
+        lineRenderer.enabled = false;
     }
 
     private void DrawLine(Vector3 worldPoint) {
         linePoints[0] = transform.position;
-        linePoints[1] = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
+        // linePoints[1] = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
+        linePoints[1] = worldPoint;
         lineRenderer.SetPositions(linePoints.ToArray());
         lineRenderer.enabled = true;
     }
