@@ -48,12 +48,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Introduction");
-        Time.timeScale = 1;
-    }
-
     public void QuitGame()
     {
         Application.Quit();
