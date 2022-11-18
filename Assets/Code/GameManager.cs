@@ -110,9 +110,9 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Level1");
             return;
         }
-        int nextlevel = currlevel[currlevel.Length-1] - '0';
-        SceneManager.LoadScene("Level" + (++nextlevel).ToString());
 
+        int currlevelcode = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(++currlevelcode);
         // if (nextlevel == 4) {
         //     SceneManager.LoadScene("WinScreen");
         // } else {

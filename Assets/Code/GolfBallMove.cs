@@ -8,7 +8,8 @@ public class GolfBallMove : MonoBehaviour
     private float scaleDownTouch = 0.3f;
     private Rigidbody _rigidbody;
     private GameManager gameManager;
-
+    private Vector3 force = Vector3.zero;
+    private bool ballTurn = false;
 
     private void Start() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -32,8 +33,14 @@ public class GolfBallMove : MonoBehaviour
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Moved) {
-                Vector3 force = new Vector3(-touch.deltaPosition.x * scaleDownTouch, 0, -touch.deltaPosition.y * scaleDownTouch);
+                ballTurn = true;
+                force = new Vector3(-touch.deltaPosition.x * scaleDownTouch, 0, -touch.deltaPosition.y * scaleDownTouch);
+            } else if (touch.phase == TouchPhase.Ended && ballTurn) {
                 _rigidbody.AddForce(force);
+                Handheld.Vibrate();
+                ballTurn = false;
+            } else {
+                ballTurn = false;
             }
         }
     }
