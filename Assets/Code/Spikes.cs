@@ -30,9 +30,8 @@ public class Spikes : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        print("spike hit something");
         if (other.gameObject.CompareTag("GolfBall")) {
-            print("spike hit golfball");
+            Handheld.Vibrate();
             gameManager.RestartLevel();
         }
     }
