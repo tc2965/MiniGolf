@@ -6,6 +6,7 @@ public class MovingPlatform : MonoBehaviour
 {
     public Transform pointA;
     public Transform pointB;
+    public GameObject ballGoesUnderHere;
     public bool oscillate = true;
     public float speed = 1.0f;
     public float journeyLength = 1.0f;
@@ -24,7 +25,7 @@ public class MovingPlatform : MonoBehaviour
     
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("GolfBall")) {
-            other.gameObject.transform.parent = transform;
+            other.gameObject.transform.parent = ballGoesUnderHere.transform;
         }
     }
 

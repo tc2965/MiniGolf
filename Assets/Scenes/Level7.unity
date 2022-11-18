@@ -948,7 +948,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh143592
+  m_Name: pb_Mesh213174
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 5
   m_FollowOffset: {x: 0, y: 2.82, z: -10}
   m_XDamping: 1
   m_YDamping: 1
@@ -1713,7 +1713,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-183116
+  m_Name: pb_Mesh-277284
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1928,7 +1928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405463, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405463, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_Interpolate
@@ -1936,7 +1936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405463, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_CollisionDetection
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
@@ -2025,6 +2025,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1477985297}
     m_Modifications:
+    - target: {fileID: 2003979784135459960, guid: 197c92f38e1e940c6a6f269aa314a2ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003979784135459960, guid: 197c92f38e1e940c6a6f269aa314a2ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7179644291853867246, guid: 197c92f38e1e940c6a6f269aa314a2ff, type: 3}
       propertyPath: m_Name
       value: MovingPlatform
