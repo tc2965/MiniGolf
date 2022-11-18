@@ -29,13 +29,6 @@ public class GolfBallMove : MonoBehaviour
         else {
             Time.timeScale = 0;
         }
-        if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved) {
-                Vector3 force = new Vector3(-touch.deltaPosition.x * scaleDownTouch, 0, -touch.deltaPosition.y * scaleDownTouch);
-                _rigidbody.AddForce(force);
-            }
-        }
     }
 
     private void FixedUpdate()
