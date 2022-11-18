@@ -9,7 +9,13 @@ public class MusicClass : MonoBehaviour
     public AudioClip sound2; 
     public AudioClip sound3; 
 
-    private void Awake()
+    private void Awake() 
+    {
+        if (GameObject.FindGameObjectsWithTag("Music").Length > 1) {
+            Destroy(gameObject);
+        }
+    }
+    private void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
         _audioSource = GetComponent<AudioSource>();
