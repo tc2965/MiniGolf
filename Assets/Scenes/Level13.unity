@@ -1476,6 +1476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+--- !u!1 &895152044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1433242022253405457, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+  m_PrefabInstance: {fileID: 895152043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1068670135
 Mesh:
   m_ObjectHideFlags: 0
@@ -6301,7 +6306,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-78530
+  m_Name: pb_Mesh87122
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6623,7 +6628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545c0a07b091d46b58e71ca37ad3fd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GolfBall: {fileID: 0}
+  GolfBall: {fileID: 895152044}
 --- !u!64 &1679886500
 MeshCollider:
   m_ObjectHideFlags: 0
