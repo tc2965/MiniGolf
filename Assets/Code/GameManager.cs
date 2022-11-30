@@ -106,12 +106,10 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel() 
     {
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        //SceneManager.LoadScene(++currentLevel);
-
-        if (currentLevel == 15) {
+        if (currentLevel == 16) {
             SceneManager.LoadScene("Ending");
         } else {
-            SceneManager.LoadScene("Level" + (++currentLevel).ToString());
+            SceneManager.LoadScene(++currentLevel);
         }
     }
 
