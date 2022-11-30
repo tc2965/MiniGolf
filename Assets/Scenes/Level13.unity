@@ -770,6 +770,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7205226515120879664, guid: 44050613d376346d286fe7af7156e271, type: 3}
   m_PrefabInstance: {fileID: 446388211}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &446388214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4082106095010815683, guid: 44050613d376346d286fe7af7156e271, type: 3}
+  m_PrefabInstance: {fileID: 446388211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &446388215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7331486461266409261, guid: 44050613d376346d286fe7af7156e271, type: 3}
+  m_PrefabInstance: {fileID: 446388211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &579130790
 Mesh:
   m_ObjectHideFlags: 0
@@ -6199,8 +6209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 446388212}
-  soundOptionsMenu: {fileID: 0}
-  nextLevelScreen: {fileID: 0}
+  soundOptionsMenu: {fileID: 446388215}
+  nextLevelScreen: {fileID: 446388214}
 --- !u!4 &1385231647
 Transform:
   m_ObjectHideFlags: 0
