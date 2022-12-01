@@ -6,6 +6,10 @@ public class MovementManager : MonoBehaviour
 {   
     public bool isFlat = true;
     private Rigidbody rigid;
+    public float jumpHeight = 550;
+    public bool isGrounded = false;
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -18,10 +22,18 @@ public class MovementManager : MonoBehaviour
         Vector3 tilt = Input.acceleration;
 
         if (isFlat){
-            tilt = Quaternion.Euler(135,0,0) * tilt * 5;
+            tilt = Quaternion.Euler(135,0,0) * tilt * 8;
         }
 
         rigid.AddForce(tilt);
         Debug.DrawRay(transform.position + Vector3.up, tilt, Color.cyan);
+
     }
+
+    public void Jump()
+    {
+        rigid.AddForce(new Vector3(0, jumpHeight, 0));
+    }
+
 }
+
