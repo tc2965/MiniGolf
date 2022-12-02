@@ -1409,6 +1409,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+--- !u!4 &580340333 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1433242022253405461, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+  m_PrefabInstance: {fileID: 580340332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &660010269
 Mesh:
   m_ObjectHideFlags: 0
@@ -5813,8 +5818,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 580340333}
+  m_Follow: {fileID: 580340333}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
