@@ -5097,6 +5097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7205226515120879671, guid: 44050613d376346d286fe7af7156e271, type: 3}
+      propertyPath: levelSkyBox
+      value: 
+      objectReference: {fileID: 2100000, guid: 3802fb8899dc2df428fb805843045a49, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44050613d376346d286fe7af7156e271, type: 3}
 --- !u!1 &1153243880 stripped
@@ -7750,6 +7754,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1153243880}
   soundOptionsMenu: {fileID: 0}
   nextLevelScreen: {fileID: 0}
+  levelSkyBox: {fileID: 0}
 --- !u!4 &1908905233
 Transform:
   m_ObjectHideFlags: 0

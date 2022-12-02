@@ -504,6 +504,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   soundOptionsMenu: {fileID: 0}
   nextLevelScreen: {fileID: 0}
+  levelSkyBox: {fileID: 0}
 --- !u!4 &499168419
 Transform:
   m_ObjectHideFlags: 0
@@ -3217,5 +3218,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7205226515120879671, guid: 44050613d376346d286fe7af7156e271, type: 3}
+      propertyPath: levelSkyBox
+      value: 
+      objectReference: {fileID: 2100000, guid: 59b8043f54a675941ae9d6d3a01bb9de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44050613d376346d286fe7af7156e271, type: 3}

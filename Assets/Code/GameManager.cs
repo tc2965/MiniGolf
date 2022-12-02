@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject nextLevelScreen; // must restart level 
     private GolfBallMove golfBall;
     private MusicClass musicClass;
+    [SerializeField] private Material levelSkyBox;
 
     void Start()
     {
@@ -38,7 +39,9 @@ public class GameManager : MonoBehaviour
         } else {
             print("no music class found in game manager");
         }
-
+        if (levelSkyBox != null) {
+            RenderSettings.skybox = levelSkyBox;
+        }
     }
 
     void Update()
@@ -46,6 +49,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && nextLevelScreen != null) {
             nextLevelScreen.SetActive(true);
         }
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time);
+
     }
 
     public void QuitGame()

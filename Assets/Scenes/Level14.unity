@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7205226515120879671, guid: 44050613d376346d286fe7af7156e271, type: 3}
+      propertyPath: levelSkyBox
+      value: 
+      objectReference: {fileID: 2100000, guid: f9c898edef9d7b64f89790e4c635834d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44050613d376346d286fe7af7156e271, type: 3}
 --- !u!1 &67761390 stripped
@@ -1164,6 +1168,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 67761390}
   soundOptionsMenu: {fileID: 0}
   nextLevelScreen: {fileID: 0}
+  levelSkyBox: {fileID: 0}
 --- !u!4 &479671417
 Transform:
   m_ObjectHideFlags: 0
@@ -2849,7 +2854,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218640084}
-  m_LocalRotation: {x: 0.20248148, y: 0.0032561526, z: -0.0006732602, w: 0.9792805}
+  m_LocalRotation: {x: 0.2024815, y: 0.0032561668, z: -0.0006732633, w: 0.9792805}
   m_LocalPosition: {x: 5.899944, y: 2.5555744, z: -12.149778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5868,7 +5873,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678774150}
-  m_LocalRotation: {x: 0.20248148, y: 0.0032561526, z: -0.0006732602, w: 0.9792805}
+  m_LocalRotation: {x: 0.2024815, y: 0.0032561668, z: -0.0006732633, w: 0.9792805}
   m_LocalPosition: {x: 5.899944, y: 2.5555744, z: -12.149778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
