@@ -1351,6 +1351,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2302346028968235052, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+      propertyPath: jumpHeight
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405457, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_Name
       value: GolfBall
@@ -1414,6 +1418,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1433242022253405461, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
   m_PrefabInstance: {fileID: 580340332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &580340334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2302346028968235052, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+  m_PrefabInstance: {fileID: 580340332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754116371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc1f9b941f144c8ba3fbe14e9996409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &660010269
 Mesh:
   m_ObjectHideFlags: 0
@@ -1672,6 +1687,14 @@ PrefabInstance:
     - target: {fileID: 2780917591794908801, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
       propertyPath: m_Name
       value: Canvas 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908857530449708086, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 580340334}
+    - target: {fileID: 6908857530449708086, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jump
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
@@ -2826,7 +2849,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218640084}
-  m_LocalRotation: {x: 0.20248148, y: 0.0032561526, z: -0.0006732602, w: 0.9792805}
+  m_LocalRotation: {x: 0.2024815, y: 0.0032561668, z: -0.0006732633, w: 0.9792805}
   m_LocalPosition: {x: 5.899944, y: 2.5555744, z: -12.149778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5845,7 +5868,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678774150}
-  m_LocalRotation: {x: 0.20248148, y: 0.0032561526, z: -0.0006732602, w: 0.9792805}
+  m_LocalRotation: {x: 0.2024815, y: 0.0032561668, z: -0.0006732633, w: 0.9792805}
   m_LocalPosition: {x: 5.899944, y: 2.5555744, z: -12.149778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

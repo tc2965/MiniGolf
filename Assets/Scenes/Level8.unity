@@ -218,6 +218,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6908857530449708086, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 696888082}
+    - target: {fileID: 6908857530449708086, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jump
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
 --- !u!224 &14841748 stripped
@@ -3118,6 +3126,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2302346028968235052, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+      propertyPath: jumpHeight
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405457, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_Name
       value: GolfBall
@@ -3176,6 +3188,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+--- !u!114 &696888082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2302346028968235052, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+  m_PrefabInstance: {fileID: 696888081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726069436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc1f9b941f144c8ba3fbe14e9996409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &725807492
 GameObject:
   m_ObjectHideFlags: 0

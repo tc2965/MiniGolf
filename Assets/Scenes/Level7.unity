@@ -17421,6 +17421,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6908857530449708086, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1433242024092926858}
+    - target: {fileID: 6908857530449708086, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jump
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
 --- !u!224 &2064489003 stripped
@@ -17515,7 +17523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlat: 1
-  jumpHeight: 550
+  jumpHeight: 350
   isGrounded: 0
 --- !u!1001 &7205226515964812555
 PrefabInstance:
