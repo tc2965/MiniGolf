@@ -3847,7 +3847,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2302346028968235052, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: jumpHeight
-      value: 350
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405457, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_Name

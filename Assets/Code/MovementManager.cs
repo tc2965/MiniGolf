@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[RequireComponent(typeof(Rigidbody))]
 
 public class MovementManager : MonoBehaviour
 {   
@@ -8,6 +9,9 @@ public class MovementManager : MonoBehaviour
     private Rigidbody rigid;
     public float jumpHeight = 550;
     public bool isGrounded = false;
+    public float g=9.8f;
+
+    Matrix4x4 baseMatrix;
 
 
     // Start is called before the first frame update
@@ -17,17 +21,13 @@ public class MovementManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    void FixedUpdate() {
         Vector3 tilt = Input.acceleration;
-
-        if (isFlat){
-            tilt = Quaternion.Euler(135,0,0) * tilt * 8;
-        }
+        
+        tilt = Quaternion.Euler(135,0,0) * tilt * 8;
 
         rigid.AddForce(tilt);
         Debug.DrawRay(transform.position + Vector3.up, tilt, Color.cyan);
-
     }
 
     public void Jump()

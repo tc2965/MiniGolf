@@ -553,7 +553,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-24584
+  m_Name: pb_Mesh-96386
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -814,6 +814,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Jump
       objectReference: {fileID: 0}
+    - target: {fileID: 9031936936038711302, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1433242024092926857}
+    - target: {fileID: 9031936936038711302, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Calibrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031936936038711302, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MovementManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031936936038711302, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34274dd22e71e4e29bbfa79096e997e4, type: 3}
 --- !u!224 &1269579997 stripped
@@ -903,7 +919,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-31082
+  m_Name: pb_Mesh-96372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1067,7 +1083,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh47478
+  m_Name: pb_Mesh80908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1497,7 +1513,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2302346028968235052, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: jumpHeight
-      value: 350
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405457, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_Name
@@ -1546,6 +1562,14 @@ PrefabInstance:
     - target: {fileID: 1433242022253405461, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433242022253405463, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433242022253405463, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+      propertyPath: m_Mass
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1433242022253405463, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_Constraints
