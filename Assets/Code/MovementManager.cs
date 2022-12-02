@@ -32,7 +32,20 @@ public class MovementManager : MonoBehaviour
 
     public void Jump()
     {
-        rigid.AddForce(new Vector3(0, jumpHeight, 0));
+        if(isGrounded)
+        {
+            rigid.AddForce(new Vector3(0, jumpHeight, 0));
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isGrounded = false;
     }
 
 }
