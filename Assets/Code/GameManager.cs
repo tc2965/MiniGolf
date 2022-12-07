@@ -97,6 +97,10 @@ public class GameManager : MonoBehaviour
     {
         musicClass.ChangeMusic(num);
     }
+
+    public void controlVolume(float volume){
+        musicClass.setVolume(volume);
+    }
     
     public void RestartLevel()
     {
