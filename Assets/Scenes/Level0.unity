@@ -1520,6 +1520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall
       objectReference: {fileID: 0}
+    - target: {fileID: 1433242022253405459, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09347c58f67611b4e9e5ed1baf8ace29, type: 2}
     - target: {fileID: 1433242022253405461, guid: 8ab091a6e89f342e489d767f31d03c5b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1675,7 +1679,7 @@ PrefabInstance:
     - target: {fileID: 4719417388921169080, guid: 0ee956b4e325b4f2db65f4f2a85c96c6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1df5e247fad035f49a06797b7ed8f01c, type: 2}
+      objectReference: {fileID: 2100000, guid: 2ed5ac5bee18ffe4396d871af249a6b7, type: 2}
     - target: {fileID: 4719417388921169081, guid: 0ee956b4e325b4f2db65f4f2a85c96c6, type: 3}
       propertyPath: m_Mesh
       value: 
